@@ -767,11 +767,34 @@ td {
 
 @media (max-width: 760px) {
   :root {
-    --header-offset: 410px;
+    --header-offset: 0px;
   }
 
   .site-header {
+    position: static;
+    max-width: none;
     border-radius: 0;
+  }
+
+  .site-header .hero {
+    display: flex !important;
+  }
+
+  .site-header .compact-hero {
+    display: none !important;
+  }
+
+  .site-header.is-compact .hero {
+    display: flex !important;
+  }
+
+  .site-header.is-compact .compact-hero {
+    display: none !important;
+  }
+
+  .site-header.is-compact .tabs {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .hero {
@@ -815,6 +838,11 @@ td {
   }
 
   .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background: rgba(232, 248, 255, 0.94);
+    backdrop-filter: blur(18px);
     padding: 10px 12px;
   }
 
@@ -851,7 +879,7 @@ td {
 
 @media (max-width: 430px) {
   :root {
-    --header-offset: 390px;
+    --header-offset: 0px;
   }
 
   .hero {
