@@ -108,18 +108,27 @@
 
 (function () {
   const header = document.querySelector(".site-header");
+  const hero = document.querySelector(".hero");
+  const compactHero = document.querySelector(".compact-hero");
   if (!header) return;
   let compact = false;
+
+  function applyHeaderState() {
+    header.classList.toggle("is-compact", compact);
+    if (hero) hero.hidden = compact;
+    if (compactHero) compactHero.hidden = !compact;
+  }
 
   function syncHeader() {
     const next = compact ? window.scrollY > 44 : window.scrollY > 140;
     if (next !== compact) {
       compact = next;
-      header.classList.toggle("is-compact", compact);
+      applyHeaderState();
     }
   }
 
   window.addEventListener("scroll", syncHeader, { passive: true });
+  applyHeaderState();
   syncHeader();
 })();
 
