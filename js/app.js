@@ -110,13 +110,19 @@
   const header = document.querySelector(".site-header");
   const hero = document.querySelector(".hero");
   const compactHero = document.querySelector(".compact-hero");
+  const root = document.documentElement;
   if (!header) return;
   let compact = false;
+
+  function syncHeaderOffset() {
+    root.style.setProperty("--header-offset", header.offsetHeight + "px");
+  }
 
   function applyHeaderState() {
     header.classList.toggle("is-compact", compact);
     if (hero) hero.hidden = compact;
     if (compactHero) compactHero.hidden = !compact;
+    requestAnimationFrame(syncHeaderOffset);
   }
 
   function syncHeader() {
@@ -127,9 +133,11 @@
     }
   }
 
+  window.addEventListener("resize", syncHeaderOffset);
   window.addEventListener("scroll", syncHeader, { passive: true });
   applyHeaderState();
   syncHeader();
+  window.addEventListener("load", syncHeaderOffset);
 })();
 
 (function () {

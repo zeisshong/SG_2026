@@ -767,7 +767,7 @@ td {
 
 @media (max-width: 760px) {
   :root {
-    --header-offset: 316px;
+    --header-offset: 410px;
   }
 
   .site-header {
@@ -851,7 +851,7 @@ td {
 
 @media (max-width: 430px) {
   :root {
-    --header-offset: 294px;
+    --header-offset: 390px;
   }
 
   .hero {
