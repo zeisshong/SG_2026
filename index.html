@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>光華_新加坡音樂交流</title>
   <meta name="description" content="光華國小 2026 新加坡音樂交流五日行程與重要資訊。">
-  <link rel="stylesheet" href="./css/styles.css?v=20260715-3">
+  <link rel="stylesheet" href="./css/styles.css?v=20260715-4">
 </head>
 <body>
   <header class="site-header">
@@ -60,6 +60,10 @@
         <span>重要資訊</span>
         <small>集合 / 航班 / 住宿</small>
       </button>
+      <button class="tab-btn notice-tab" type="button" data-tab="notice">
+        <span>須知</span>
+        <small>行李 / 海關 / 比賽</small>
+      </button>
       <button class="tab-btn roster-tab" type="button" data-tab="assignments">
         <span>名單</span>
         <small>分車 / 分房</small>
@@ -79,11 +83,19 @@
 
       <div class="timeline">
         <article class="event-card">
+          <time>05:00</time>
+          <div>
+            <h3>校門口集合</h3>
+            <p>清晨於光華國小校門口集合，進行點名與樂器裝載。</p>
+            <span class="tag transport">集合</span>
+          </div>
+        </article>
+        <article class="event-card">
           <time>05:30</time>
           <div>
             <h3>光華國小發車</h3>
-            <p>新北市新莊區光華國民小學集合出發。</p>
-            <span class="tag transport">集合</span>
+            <p>搭乘遊覽車前往桃園機場。</p>
+            <span class="tag transport">出發</span>
           </div>
         </article>
         <article class="event-card">
@@ -145,19 +157,51 @@
 
       <div class="timeline">
         <article class="event-card">
-          <time>上午</time>
+          <time>09:00</time>
           <div>
-            <h3>飯店早餐與整隊出發</h3>
-            <p>比賽相關集合、搬運與彩排時間待旅行社補充。</p>
-            <span class="tag transport">整隊</span>
+            <h3>前往練習場地</h3>
+            <p>飯店早餐後出發，進行約 2 小時練習。</p>
+            <span class="tag music">練習</span>
+          </div>
+        </article>
+        <article class="event-card">
+          <time>11:30</time>
+          <div>
+            <h3>練習結束，用餐</h3>
+            <p>練習後步行約 3 分鐘至餐廳用餐。</p>
+            <span class="tag food">午餐</span>
+          </div>
+        </article>
+        <article class="event-card">
+          <time>14:30</time>
+          <div>
+            <h3>抵達比賽場地</h3>
+            <p>前往 YST Conservatory of Music Concert Hall。</p>
+            <span class="tag transport">抵達</span>
+          </div>
+        </article>
+        <article class="event-card">
+          <time>15:00</time>
+          <div>
+            <h3>現場報到</h3>
+            <p>依主辦單位與隨隊人員安排完成報到。</p>
+            <span class="tag music">報到</span>
           </div>
         </article>
         <article class="event-card featured-event">
-          <time>主活動</time>
+          <time>16:00</time>
           <div>
             <h3>10th 新加坡國際管樂節比賽</h3>
-            <p>地點：YST Conservatory of Music Concert Hall。</p>
-            <span class="tag music">音樂節</span>
+            <p>比賽正式開始，預計約 16:30 結束演出。</p>
+            <span class="tag music">比賽</span>
+          </div>
+        </article>
+        <article class="event-card">
+          <time>16:30 - 18:00</time>
+          <div>
+            <h3>現場觀摩</h3>
+            <p>比賽後留在現場觀摩其他優秀隊伍。</p>
+            <span class="tag music">觀摩</span>
           </div>
         </article>
         <article class="event-card">
@@ -336,6 +380,7 @@
         <article class="info-card">
           <h3>集合與領隊</h3>
           <dl>
+            <div><dt>集合時間</dt><dd>2026/7/20（一）上午 05:00</dd></div>
             <div><dt>發車時間</dt><dd>2026/7/20（一）上午 05:30</dd></div>
             <div><dt>集合地點</dt><dd>新北市新莊區光華國民小學</dd></div>
             <div><dt>地址</dt><dd>新北市新莊區光明里龍安路 452 號</dd></div>
@@ -369,6 +414,60 @@
             <li>本行程包含導遊、領隊、司機小費。</li>
             <li>可免費託運 1 件行李，重量以 23 公斤為限；超過免費額度將依件數、體積、重量加計費用。</li>
             <li>旅行業責任險：每人意外險 250 萬，加 20 萬意外醫療險（實支實付）。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="notice" aria-labelledby="notice-title">
+      <div class="day-header">
+        <div>
+          <p class="day-kicker">Notes</p>
+          <h2 id="notice-title">旅行須知</h2>
+          <p>只整理會影響出入境、託運與比賽日行動的重點。</p>
+        </div>
+        <img class="info-stitch" src="./assets/stitch-small.png" alt="" aria-hidden="true">
+      </div>
+
+      <div class="info-grid notice-grid">
+        <article class="info-card">
+          <h3>出發集合</h3>
+          <ul class="notice-list">
+            <li>7/20（一）05:00 於校門口集合，05:30 發車。</li>
+            <li>大件樂器會直接裝上遊覽車，家長不需自行搬運到集合現場。</li>
+            <li>機場下車時，請確認行李與樂器都已拿下車。</li>
+            <li>7/20 與 7/24 學生穿藍色團服上半身。</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <h3>行李與海關</h3>
+          <ul class="notice-list">
+            <li>行動電源、鋰電池、含電池調音器只能放隨身行李，不可託運。</li>
+            <li>隨身液體容器需 100ml 以下；100ml 看容器容量，不看剩餘水量。</li>
+            <li>刀具、剪刀、修眉刀、瑞士刀等請放託運行李。</li>
+            <li>香菸、電子菸、口香糖不得帶入新加坡。</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <h3>託運與住宿</h3>
+          <ul class="notice-list">
+            <li>每人 1 件隨身行李 7kg 內，1 件託運行李 23kg 內。</li>
+            <li>託運樂器會佔用一件託運行李額度。</li>
+            <li>個人常備藥請自行準備，隨隊人員無法主動提供藥物。</li>
+            <li>飯店不主動提供牙膏、牙刷與室內拖鞋，請自行準備。</li>
+            <li>新加坡為英規三腳插頭，電壓 220V。</li>
+          </ul>
+        </article>
+
+        <article class="info-card">
+          <h3>比賽日提醒</h3>
+          <ul class="notice-list">
+            <li>服裝：白色長袖襯衫、學校環服、白色長襪、乾淨白鞋。</li>
+            <li>練習場地請保持清潔，垃圾集中處理。</li>
+            <li>比賽現場禁止觀眾私自攝錄影。</li>
+            <li>家長觀賽需自費買票，第一天晚間由領隊統計，以新幣付款。</li>
           </ul>
         </article>
       </div>
@@ -532,6 +631,6 @@
     </form>
   </dialog>
 
-  <script src="./js/app.js?v=20260715-3"></script>
+  <script src="./js/app.js?v=20260715-4"></script>
 </body>
 </html>
