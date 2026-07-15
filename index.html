@@ -367,32 +367,14 @@
     </section>
 
     <section class="panel" id="assignments" aria-labelledby="assignment-title">
-      <div class="day-header">
-        <div>
-          <p class="day-kicker">Private List</p>
-          <h2 id="assignment-title">分車 / 分房名單</h2>
-          <p>此頁含完整姓名資料，請輸入團內密碼後查看。</p>
-        </div>
-        <img class="info-stitch" src="./assets/stitch-small.png" alt="" aria-hidden="true">
-      </div>
-
-      <div class="assignment-lock" data-lock>
-        <form class="lock-card" data-lock-form>
-          <h3>輸入密碼</h3>
-          <p>密碼正確後會在此裝置記住解鎖狀態。</p>
-          <div class="lock-row">
-            <input class="lock-input" type="password" inputmode="text" autocomplete="current-password" placeholder="請輸入密碼" aria-label="名單密碼">
-            <button class="lock-submit" type="submit">解鎖</button>
-          </div>
-          <p class="lock-error" role="alert">密碼不正確，請再試一次。</p>
-        </form>
-      </div>
-
       <div class="assignment-content" data-protected hidden>
       <section class="assignment-section" aria-labelledby="assignment-title">
         <div class="section-heading">
-          <p class="day-kicker">Assignments</p>
-          <h2>分車 / 分房表</h2>
+          <div>
+            <p class="day-kicker">Private List</p>
+            <h2 id="assignment-title">分車 / 分房表</h2>
+          </div>
+          <img class="section-stitch" src="./assets/stitch-small.png" alt="" aria-hidden="true">
         </div>
 
         <div class="subtabs" role="tablist" aria-label="分車分房切換">
@@ -522,6 +504,25 @@
       </div>
     </section>
   </main>
+
+  <dialog class="password-dialog" data-password-dialog aria-labelledby="password-title">
+    <form class="dialog-card" method="dialog" data-lock-form>
+      <div class="dialog-head">
+        <div>
+          <p class="day-kicker">Private List</p>
+          <h2 id="password-title">輸入名單密碼</h2>
+        </div>
+        <img src="./assets/stitch-small.png" alt="" aria-hidden="true">
+      </div>
+      <p>分車 / 分房名單含完整姓名資料，請輸入團內密碼後查看。</p>
+      <div class="lock-row">
+        <input class="lock-input" type="password" inputmode="text" autocomplete="current-password" placeholder="請輸入密碼" aria-label="名單密碼">
+        <button class="lock-submit" type="submit">確認</button>
+      </div>
+      <p class="lock-error" role="alert">密碼不正確，請再試一次。</p>
+      <button class="dialog-close" type="button" data-dialog-close aria-label="關閉">關閉</button>
+    </form>
+  </dialog>
 
   <script src="./js/app.js"></script>
 </body>

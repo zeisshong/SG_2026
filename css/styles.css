@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -462,34 +466,7 @@ dd,
 }
 
 .assignment-section {
-  margin-top: 18px;
   padding: 18px;
-}
-
-.assignment-lock {
-  display: grid;
-  place-items: center;
-  min-height: 260px;
-}
-
-.lock-card {
-  width: min(100%, 430px);
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: var(--shadow);
-}
-
-.lock-card h3 {
-  margin-bottom: 8px;
-  color: #123f5d;
-  font-size: 1.2rem;
-}
-
-.lock-card p {
-  color: var(--muted);
-  line-height: 1.6;
 }
 
 .lock-row {
@@ -540,8 +517,99 @@ dd,
   display: block;
 }
 
-.section-heading h2 {
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
   margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin-bottom: 0;
+}
+
+.section-stitch {
+  width: 78px;
+  height: 62px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  padding: 6px;
+  border: 1px solid rgba(23, 105, 179, 0.12);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(23, 105, 179, 0.1);
+}
+
+.password-dialog {
+  width: min(calc(100% - 32px), 460px);
+  padding: 0;
+  border: 0;
+  border-radius: 26px;
+  background: transparent;
+  color: var(--ink);
+}
+
+.password-dialog::backdrop {
+  background: rgba(7, 36, 54, 0.42);
+  backdrop-filter: blur(5px);
+}
+
+.dialog-card {
+  position: relative;
+  padding: 24px;
+  border: 1px solid rgba(23, 105, 179, 0.14);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 92% 0, rgba(128, 224, 212, 0.55), transparent 9rem),
+    rgba(255, 255, 255, 0.98);
+  box-shadow: 0 28px 60px rgba(7, 36, 54, 0.24);
+}
+
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.dialog-head h2 {
+  margin: 0;
+  color: #104b73;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.dialog-head img {
+  width: 82px;
+  height: 66px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  padding: 6px;
+  border: 1px solid rgba(23, 105, 179, 0.12);
+  border-radius: 18px;
+  background: #fff;
+}
+
+.dialog-card > p {
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 650;
+}
+
+.dialog-close {
+  margin-top: 12px;
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid rgba(23, 105, 179, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
 }
 
 .subtabs {
@@ -707,6 +775,11 @@ td {
     padding: 18px;
   }
 
+  .section-stitch {
+    width: 64px;
+    height: 52px;
+  }
+
   .info-stitch {
     width: 92px;
     height: 78px;
@@ -752,5 +825,14 @@ td {
 
   .lock-row {
     grid-template-columns: 1fr;
+  }
+
+  .dialog-card {
+    padding: 20px;
+  }
+
+  .dialog-head img {
+    width: 68px;
+    height: 56px;
   }
 }

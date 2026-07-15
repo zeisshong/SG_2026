@@ -1,8 +1,55 @@
 (function () {
+  const rosterPassword = "SG2026";
+  const storageKey = "sg2026_roster_unlocked";
   const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
   const panels = Array.from(document.querySelectorAll(".panel"));
+  const dialog = document.querySelector("[data-password-dialog]");
+  const form = document.querySelector("[data-lock-form]");
+  const input = form ? form.querySelector(".lock-input") : null;
+  const error = form ? form.querySelector(".lock-error") : null;
+  const closeButton = document.querySelector("[data-dialog-close]");
+  const protectedContent = document.querySelector("[data-protected]");
+
+  function isRosterUnlocked() {
+    return sessionStorage.getItem(storageKey) === "1";
+  }
+
+  function markRosterUnlocked() {
+    sessionStorage.setItem(storageKey, "1");
+    if (protectedContent) protectedContent.hidden = false;
+  }
+
+  function openPasswordDialog() {
+    if (!dialog || !input) return;
+    if (error) error.classList.remove("active");
+    input.value = "";
+    if (typeof dialog.showModal === "function") {
+      dialog.showModal();
+    } else {
+      dialog.setAttribute("open", "");
+    }
+    setTimeout(() => input.focus(), 30);
+  }
+
+  function closePasswordDialog() {
+    if (!dialog) return;
+    if (typeof dialog.close === "function") {
+      dialog.close();
+    } else {
+      dialog.removeAttribute("open");
+    }
+  }
 
   function activateTab(id) {
+    if (id === "assignments" && !isRosterUnlocked()) {
+      openPasswordDialog();
+      return;
+    }
+
+    if (id === "assignments") {
+      markRosterUnlocked();
+    }
+
     tabButtons.forEach((button) => {
       const active = button.dataset.tab === id;
       button.classList.toggle("active", active);
@@ -22,6 +69,35 @@
     button.addEventListener("click", () => activateTab(button.dataset.tab));
   });
 
+  if (form && input) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (input.value.trim() === rosterPassword) {
+        markRosterUnlocked();
+        closePasswordDialog();
+        activateTab("assignments");
+        return;
+      }
+
+      if (error) error.classList.add("active");
+      input.select();
+    });
+  }
+
+  if (closeButton) {
+    closeButton.addEventListener("click", closePasswordDialog);
+  }
+
+  if (dialog) {
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) closePasswordDialog();
+    });
+  }
+
+  if (isRosterUnlocked()) {
+    markRosterUnlocked();
+  }
+
   const initial = window.location.hash.replace("#", "");
   if (initial && document.getElementById(initial)) {
     activateTab(initial);
@@ -38,39 +114,6 @@
 
   window.addEventListener("scroll", syncHeader, { passive: true });
   syncHeader();
-})();
-
-(function () {
-  const password = "SG2026";
-  const storageKey = "sg2026_roster_unlocked";
-  const lock = document.querySelector("[data-lock]");
-  const form = document.querySelector("[data-lock-form]");
-  const input = form ? form.querySelector(".lock-input") : null;
-  const error = form ? form.querySelector(".lock-error") : null;
-  const protectedContent = document.querySelector("[data-protected]");
-
-  if (!lock || !form || !input || !protectedContent) return;
-
-  function unlock() {
-    lock.hidden = true;
-    protectedContent.hidden = false;
-    sessionStorage.setItem(storageKey, "1");
-  }
-
-  if (sessionStorage.getItem(storageKey) === "1") {
-    unlock();
-  }
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (input.value.trim() === password) {
-      unlock();
-      return;
-    }
-
-    if (error) error.classList.add("active");
-    input.select();
-  });
 })();
 
 (function () {
