@@ -120,6 +120,7 @@
   const root = document.documentElement;
   if (!header) return;
   let compact = false;
+  let desktopHeaderOffset = 0;
   const mobileQuery = window.matchMedia("(max-width: 760px)");
 
   function syncHeaderOffset() {
@@ -131,8 +132,9 @@
 
     const headerHeight = header.offsetHeight;
     const tabsHeight = tabs ? tabs.offsetHeight : 0;
+    desktopHeaderOffset = Math.max(desktopHeaderOffset, headerHeight + tabsHeight);
     root.style.setProperty("--header-height", headerHeight + "px");
-    root.style.setProperty("--header-offset", headerHeight + tabsHeight + "px");
+    root.style.setProperty("--header-offset", desktopHeaderOffset + "px");
   }
 
   function applyHeaderState() {
@@ -167,6 +169,7 @@
 
   mobileQuery.addEventListener("change", () => {
     compact = false;
+    desktopHeaderOffset = 0;
     applyHeaderState();
     syncHeader();
   });
