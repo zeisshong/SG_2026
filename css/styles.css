@@ -14,7 +14,7 @@
   --shadow: 0 18px 42px rgba(24, 87, 130, 0.14);
   --radius: 22px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
-  --header-offset: 360px;
+  --header-offset: 358px;
 }
 
 * {
@@ -64,18 +64,9 @@ a:hover {
   border-bottom: 1px solid rgba(23, 105, 179, 0.1);
 }
 
-.site-header.is-compact .hero {
-  min-height: 0;
-  height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .hero {
   position: relative;
-  min-height: 270px;
+  height: 270px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -86,7 +77,6 @@ a:hover {
     radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.9) 0 4%, transparent 4.5%),
     radial-gradient(circle at 84% 35%, rgba(255, 255, 255, 0.7) 0 6%, transparent 6.5%),
     linear-gradient(135deg, #bdeeff 0%, #8ee8e0 48%, #fff0a8 100%);
-  transition: min-height 0.24s ease, height 0.24s ease, padding 0.24s ease, opacity 0.18s ease;
 }
 
 .hero::before {
@@ -96,6 +86,63 @@ a:hover {
   height: 150px;
   background: rgba(255, 255, 255, 0.48);
   border-radius: 50% 50% 0 0;
+}
+
+.compact-hero {
+  display: none;
+  height: 72px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background:
+    radial-gradient(circle at 92% 0, rgba(128, 224, 212, 0.55), transparent 10rem),
+    linear-gradient(135deg, rgba(189, 238, 255, 0.96), rgba(255, 240, 168, 0.96));
+}
+
+.compact-hero img {
+  width: 54px;
+  height: 48px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  padding: 4px;
+  border: 1px solid rgba(23, 105, 179, 0.12);
+  border-radius: 15px;
+  background: #fff;
+}
+
+.compact-hero strong,
+.compact-hero span {
+  display: block;
+}
+
+.compact-hero strong {
+  color: #104b73;
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.compact-hero span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.site-header.is-compact .hero {
+  display: none;
+}
+
+.site-header.is-compact .compact-hero {
+  display: flex;
+}
+
+.site-header.is-compact .tabs {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.site-header.is-compact .tab-btn {
+  min-height: 50px;
 }
 
 .hero-copy {
@@ -718,7 +765,7 @@ td {
 
 @media (max-width: 760px) {
   :root {
-    --header-offset: 318px;
+    --header-offset: 316px;
   }
 
   .site-header {
@@ -726,7 +773,7 @@ td {
   }
 
   .hero {
-    min-height: 238px;
+    height: 238px;
     padding: 28px 18px 22px;
   }
 
@@ -802,11 +849,11 @@ td {
 
 @media (max-width: 430px) {
   :root {
-    --header-offset: 296px;
+    --header-offset: 294px;
   }
 
   .hero {
-    min-height: 218px;
+    height: 218px;
   }
 
   h1 {
