@@ -116,13 +116,23 @@
   const header = document.querySelector(".site-header");
   const hero = document.querySelector(".hero");
   const compactHero = document.querySelector(".compact-hero");
+  const tabs = document.querySelector(".tabs");
   const root = document.documentElement;
   if (!header) return;
   let compact = false;
   const mobileQuery = window.matchMedia("(max-width: 760px)");
 
   function syncHeaderOffset() {
-    root.style.setProperty("--header-offset", mobileQuery.matches ? "0px" : header.offsetHeight + "px");
+    if (mobileQuery.matches) {
+      root.style.setProperty("--header-height", "0px");
+      root.style.setProperty("--header-offset", "0px");
+      return;
+    }
+
+    const headerHeight = header.offsetHeight;
+    const tabsHeight = tabs ? tabs.offsetHeight : 0;
+    root.style.setProperty("--header-height", headerHeight + "px");
+    root.style.setProperty("--header-offset", headerHeight + tabsHeight + "px");
   }
 
   function applyHeaderState() {
