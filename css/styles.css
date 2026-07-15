@@ -254,10 +254,6 @@ h1 {
   display: contents;
 }
 
-.mobile-trip-bar {
-  display: none;
-}
-
 .tabs::-webkit-scrollbar,
 .tab-scroll::-webkit-scrollbar,
 .subtabs::-webkit-scrollbar {
@@ -841,51 +837,63 @@ td {
   .tabs {
     position: sticky;
     top: 0;
-    z-index: 15;
+    z-index: 100;
     display: block;
     overflow: visible;
-    background: rgba(232, 248, 255, 0.94);
-    backdrop-filter: blur(18px);
-    padding: 8px 10px 10px;
+    background: var(--sand);
+    padding: 12px 16px 0;
+    border-bottom: 2px solid var(--line);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   }
 
   .tab-scroll {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     overflow-x: auto;
+    padding-bottom: 0;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
-  .mobile-trip-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex: 0 0 100%;
-    gap: 10px;
-    padding: 2px 2px 8px;
-    color: #104b73;
-    font-weight: 900;
-  }
-
-  .mobile-trip-bar strong,
-  .mobile-trip-bar span {
+  .tab-btn {
+    flex: 0 0 auto;
+    min-width: auto;
+    min-height: auto;
     display: block;
+    padding: 10px 16px;
+    border: 2px solid transparent;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: none;
+    color: var(--muted);
+    font-size: 0.938rem;
+    line-height: 1.4;
+    text-align: center;
     white-space: nowrap;
   }
 
-  .mobile-trip-bar strong {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 0.86rem;
+  .tab-btn.active {
+    color: var(--ink);
+    background: var(--blue-soft);
+    border-color: var(--blue);
+    box-shadow: none;
   }
 
-  .mobile-trip-bar span {
-    flex: 0 0 auto;
-    color: var(--muted);
-    font-size: 0.72rem;
-    font-weight: 850;
+  .tab-btn small {
+    display: block;
+    margin-top: 0;
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.85;
+  }
+
+  .info-tab,
+  .notice-tab,
+  .roster-tab {
+    min-width: auto;
   }
 
   .page-shell {
@@ -952,13 +960,13 @@ td {
   }
 
   .tab-btn {
-    min-width: 96px;
+    min-width: auto;
   }
 
   .info-tab,
   .notice-tab,
   .roster-tab {
-    min-width: 150px;
+    min-width: auto;
   }
 
   .lock-row {
