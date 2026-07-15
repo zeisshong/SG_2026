@@ -120,6 +120,14 @@
   }
 
   function applyHeaderState() {
+    if (mobileQuery.matches) {
+      header.classList.remove("is-compact");
+      if (hero) hero.hidden = false;
+      if (compactHero) compactHero.hidden = false;
+      syncHeaderOffset();
+      return;
+    }
+
     const shouldCompact = compact && !mobileQuery.matches;
     header.classList.toggle("is-compact", shouldCompact);
     if (hero) hero.hidden = shouldCompact;

@@ -781,15 +781,12 @@ td {
   }
 
   .site-header .compact-hero {
-    display: none !important;
-  }
-
-  .site-header.is-compact .hero {
+    position: sticky;
+    top: 0;
+    z-index: 16;
     display: flex !important;
-  }
-
-  .site-header.is-compact .compact-hero {
-    display: none !important;
+    height: 60px;
+    padding: 7px 12px;
   }
 
   .site-header.is-compact .tabs {
@@ -839,7 +836,7 @@ td {
 
   .tabs {
     position: sticky;
-    top: 0;
+    top: 60px;
     z-index: 15;
     background: rgba(232, 248, 255, 0.94);
     backdrop-filter: blur(18px);
