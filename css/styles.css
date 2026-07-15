@@ -250,7 +250,16 @@ h1 {
   scrollbar-width: none;
 }
 
+.tab-scroll {
+  display: contents;
+}
+
+.mobile-trip-bar {
+  display: none;
+}
+
 .tabs::-webkit-scrollbar,
+.tab-scroll::-webkit-scrollbar,
 .subtabs::-webkit-scrollbar {
   display: none;
 }
@@ -781,16 +790,7 @@ td {
   }
 
   .site-header .compact-hero {
-    position: sticky;
-    top: 0;
-    z-index: 16;
-    display: flex !important;
-    height: 60px;
-    padding: 7px 12px;
-  }
-
-  .site-header.is-compact .compact-hero {
-    display: flex !important;
+    display: none !important;
   }
 
   .site-header.is-compact .tabs {
@@ -840,11 +840,52 @@ td {
 
   .tabs {
     position: sticky;
-    top: 60px;
+    top: 0;
     z-index: 15;
+    display: block;
+    overflow: visible;
     background: rgba(232, 248, 255, 0.94);
     backdrop-filter: blur(18px);
-    padding: 10px 12px;
+    padding: 8px 10px 10px;
+  }
+
+  .tab-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-trip-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 100%;
+    gap: 10px;
+    padding: 2px 2px 8px;
+    color: #104b73;
+    font-weight: 900;
+  }
+
+  .mobile-trip-bar strong,
+  .mobile-trip-bar span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .mobile-trip-bar strong {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.86rem;
+  }
+
+  .mobile-trip-bar span {
+    flex: 0 0 auto;
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 850;
   }
 
   .page-shell {
