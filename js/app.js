@@ -120,7 +120,7 @@
   }
 
   function syncHeader() {
-    const next = compact ? window.scrollY > 44 : window.scrollY > 140;
+    const next = window.scrollY > 8;
     if (next !== compact) {
       compact = next;
       applyHeaderState();
