@@ -41,6 +41,39 @@
 })();
 
 (function () {
+  const password = "SG2026";
+  const storageKey = "sg2026_roster_unlocked";
+  const lock = document.querySelector("[data-lock]");
+  const form = document.querySelector("[data-lock-form]");
+  const input = form ? form.querySelector(".lock-input") : null;
+  const error = form ? form.querySelector(".lock-error") : null;
+  const protectedContent = document.querySelector("[data-protected]");
+
+  if (!lock || !form || !input || !protectedContent) return;
+
+  function unlock() {
+    lock.hidden = true;
+    protectedContent.hidden = false;
+    sessionStorage.setItem(storageKey, "1");
+  }
+
+  if (sessionStorage.getItem(storageKey) === "1") {
+    unlock();
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (input.value.trim() === password) {
+      unlock();
+      return;
+    }
+
+    if (error) error.classList.add("active");
+    input.select();
+  });
+})();
+
+(function () {
   const buttons = Array.from(document.querySelectorAll(".subtab"));
   const panels = Array.from(document.querySelectorAll(".assignment-panel"));
 
