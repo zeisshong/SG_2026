@@ -789,6 +789,10 @@ td {
     padding: 7px 12px;
   }
 
+  .site-header.is-compact .compact-hero {
+    display: flex !important;
+  }
+
   .site-header.is-compact .tabs {
     padding-top: 10px;
     padding-bottom: 10px;
