@@ -177,10 +177,6 @@ h1 {
   color: #0d5a93;
 }
 
-h1 span {
-  display: inline;
-}
-
 .hero-subtitle {
   margin-bottom: 18px;
   color: #1d5676;
@@ -252,10 +248,6 @@ h1 span {
   overflow-x: auto;
   padding: 12px 16px;
   scrollbar-width: none;
-}
-
-.mobile-trip-bar {
-  display: none;
 }
 
 .tabs::-webkit-scrollbar,
@@ -789,7 +781,16 @@ td {
   }
 
   .site-header .compact-hero {
-    display: none !important;
+    position: sticky;
+    top: 0;
+    z-index: 16;
+    display: flex !important;
+    height: 60px;
+    padding: 7px 12px;
+  }
+
+  .site-header.is-compact .compact-hero {
+    display: flex !important;
   }
 
   .site-header.is-compact .tabs {
@@ -798,17 +799,13 @@ td {
   }
 
   .hero {
-    height: 230px;
+    height: 238px;
     padding: 28px 18px 22px;
   }
 
   h1 {
-    max-width: 68%;
-    font-size: 1.75rem;
-  }
-
-  h1 span {
-    display: block;
+    max-width: 72%;
+    font-size: 1.8rem;
   }
 
   .hero-subtitle {
@@ -828,84 +825,26 @@ td {
 
   .stitch-mascot {
     position: absolute;
-    right: 8px;
+    right: -8px;
     bottom: 0;
-    width: 138px;
-    height: 178px;
+    width: 150px;
+    height: 190px;
     transform: none;
     transform-origin: right bottom;
   }
 
   .stitch-mascot img {
-    width: 136px;
-    bottom: -14px;
+    width: 152px;
+    bottom: -32px;
   }
 
   .tabs {
     position: sticky;
-    top: 0;
+    top: 60px;
     z-index: 15;
-    display: flex;
-    flex-wrap: wrap;
-    overflow-x: visible;
     background: rgba(232, 248, 255, 0.94);
     backdrop-filter: blur(18px);
-    padding: 8px 10px 10px;
-  }
-
-  .mobile-trip-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex: 0 0 100%;
-    gap: 10px;
-    padding: 2px 2px 8px;
-    color: #104b73;
-    font-weight: 900;
-  }
-
-  .mobile-trip-bar strong,
-  .mobile-trip-bar span {
-    display: block;
-    white-space: nowrap;
-  }
-
-  .mobile-trip-bar strong {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 0.86rem;
-  }
-
-  .mobile-trip-bar span {
-    flex: 0 0 auto;
-    color: var(--muted);
-    font-size: 0.72rem;
-    font-weight: 850;
-  }
-
-  .tab-btn {
-    flex: 1 1 calc(20% - 8px);
-    min-width: 0;
-    min-height: 54px;
-    border-radius: 15px;
-    padding: 7px 8px;
-  }
-
-  .tab-btn span {
-    font-size: 0.92rem;
-  }
-
-  .tab-btn small {
-    font-size: 0.66rem;
-  }
-
-  .info-tab,
-  .notice-tab,
-  .roster-tab {
-    flex-basis: calc(33.333% - 8px);
-    min-width: 0;
-    min-height: 46px;
+    padding: 10px 12px;
   }
 
   .page-shell {
@@ -945,11 +884,11 @@ td {
   }
 
   .hero {
-    height: 212px;
+    height: 218px;
   }
 
   h1 {
-    max-width: 70%;
+    max-width: 76%;
     font-size: 1.55rem;
   }
 
@@ -963,23 +902,22 @@ td {
   }
 
   .stitch-mascot {
-    right: 6px;
+    right: -30px;
   }
 
   .stitch-mascot img {
-    width: 118px;
-    bottom: -10px;
+    width: 132px;
+    bottom: -20px;
   }
 
   .tab-btn {
-    min-height: 50px;
-    padding-inline: 6px;
+    min-width: 96px;
   }
 
   .info-tab,
   .notice-tab,
   .roster-tab {
-    min-height: 44px;
+    min-width: 150px;
   }
 
   .lock-row {

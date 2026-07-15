@@ -1,7 +1,6 @@
 (function () {
   const rosterPassword = "SG2026";
   const storageKey = "sg2026_roster_unlocked";
-  const tabs = document.querySelector(".tabs");
   const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
   const panels = Array.from(document.querySelectorAll(".panel"));
   const dialog = document.querySelector("[data-password-dialog]");
@@ -65,12 +64,7 @@
       history.replaceState(null, "", "#" + id);
     }
 
-    const mobile = window.matchMedia("(max-width: 760px)").matches;
-    const target = mobile
-      ? Math.max(0, document.querySelector(".page-shell").offsetTop - (tabs ? tabs.offsetHeight : 0) - 12)
-      : 0;
-
-    window.scrollTo({ top: target, behavior: "auto" });
+    window.scrollTo({ top: 0, behavior: "auto" });
   }
 
   tabButtons.forEach((button) => {
@@ -129,7 +123,7 @@
     if (mobileQuery.matches) {
       header.classList.remove("is-compact");
       if (hero) hero.hidden = false;
-      if (compactHero) compactHero.hidden = true;
+      if (compactHero) compactHero.hidden = false;
       syncHeaderOffset();
       return;
     }
