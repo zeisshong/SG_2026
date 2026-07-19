@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>光華_新加坡音樂交流</title>
   <meta name="description" content="光華國小 2026 新加坡音樂交流五日行程與重要資訊。">
-  <link rel="stylesheet" href="./css/styles.css?v=20260715-13">
+  <link rel="stylesheet" href="./css/styles.css?v=20260719-14">
 </head>
 <body>
   <header class="site-header">
@@ -54,6 +54,10 @@
       <button class="tab-btn" type="button" data-tab="day4">
         <span>Day 4</span>
         <small>7/23 四</small>
+      </button>
+      <button class="tab-btn uss-tab" type="button" data-tab="uss">
+        <span>USS 攻略</span>
+        <small>地圖 / 提醒</small>
       </button>
       <button class="tab-btn" type="button" data-tab="day5">
         <span>Day 5</span>
@@ -329,6 +333,69 @@
           <p>D'Resort 渡假村</p>
         </div>
       </div>
+    </section>
+
+    <section class="panel uss-panel" id="uss" aria-labelledby="uss-title">
+      <div class="day-header uss-header">
+        <div>
+          <p class="day-kicker">Day 4 · 園區補充</p>
+          <h2 id="uss-title">USS 大型團體遊園指南</h2>
+          <p>入園後先確認集合時間、集合地點與領隊聯絡方式。園內依同行小組及個人興趣安排活動，即時排隊與表演資訊以 USS 官方 App 為準。</p>
+        </div>
+        <img class="info-stitch" src="./assets/stitch-small.png" alt="" aria-hidden="true">
+      </div>
+
+      <section class="uss-section" aria-labelledby="uss-zones-title">
+        <div class="uss-section-heading">
+          <p class="day-kicker">園區選擇</p>
+          <h3 id="uss-zones-title">依興趣安排，不設定全團固定動線</h3>
+          <p>各同行小組可依設施刺激度、排隊時間與表演場次，選擇適合自己的區域。</p>
+        </div>
+
+        <div class="uss-zone-grid">
+          <article class="uss-zone-card">
+            <span aria-hidden="true">🎬</span>
+            <div><h4>小黃人樂園、遙遠王國</h4><p>適合角色互動、拍照與較輕鬆的設施。</p></div>
+          </article>
+          <article class="uss-zone-card">
+            <span aria-hidden="true">🦖</span>
+            <div><h4>失落的世界</h4><p>包含恐龍主題、戶外設施及可能濕身的河流探險。</p></div>
+          </article>
+          <article class="uss-zone-card">
+            <span aria-hidden="true">🚀</span>
+            <div><h4>古埃及、科幻城市</h4><p>刺激度較高，請依個人身體狀況及設施身高限制選擇。</p></div>
+          </article>
+          <article class="uss-zone-card">
+            <span aria-hidden="true">📸</span>
+            <div><h4>紐約、好萊塢</h4><p>適合欣賞表演、拍照及購物，也方便在集合前安排。</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="uss-section" aria-labelledby="uss-group-title">
+        <div class="uss-section-heading">
+          <p class="day-kicker">團體活動原則</p>
+          <h3 id="uss-group-title">行程保持彈性，集合務必準時</h3>
+        </div>
+
+        <div class="uss-group-list">
+          <article><strong>入園後</strong><p>先確認集合資訊，再查看官方 App 的排隊與表演時間。</p></article>
+          <article><strong>自由活動期間</strong><p>同行成員互相照應，依現場狀況調整；午餐使用 S$20 餐券自行安排。</p></article>
+          <article><strong>集合前 30 分鐘</strong><p>停止加入新的長隊，開始返回指定集合地點，預留全團點名時間。</p></article>
+        </div>
+      </section>
+
+      <aside class="uss-alert" aria-label="7 月 23 日設施停駛提醒">
+        <strong>⚠️ 7/23 設施提醒</strong>
+        <p>WaterWorld 水世界停駛至 2026/12/31；Accelerator 旋轉飛盤於 2026/7/6–8/7 停駛。當日營運狀況仍以 USS 官方 App 與現場公告為準。</p>
+      </aside>
+
+      <a class="uss-map-card" href="./assets/uss-park-map.webp" target="_blank" rel="noopener" aria-label="開啟新加坡環球影城高解析度園區地圖">
+        <img src="./assets/uss-park-map.webp" alt="新加坡環球影城園區地圖">
+        <span><strong>USS 高解析度園區地圖</strong><small>點擊開啟原尺寸，可在手機上縮放查看</small></span>
+      </a>
+
+      <a class="uss-app-link" href="https://www.rwsentosa.com/en/play/universal-studios-singapore/mobile-app" target="_blank" rel="noopener">📱 開啟 USS 官方 App 下載頁 · 查看即時排隊與表演時間</a>
     </section>
 
     <section class="panel" id="day5" aria-labelledby="day5-title">
@@ -634,6 +701,6 @@
     </form>
   </dialog>
 
-  <script src="./js/app.js?v=20260715-13"></script>
+  <script src="./js/app.js?v=20260719-14"></script>
 </body>
 </html>

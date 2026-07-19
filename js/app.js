@@ -2,6 +2,7 @@
   const rosterPassword = "SG2026";
   const storageKey = "sg2026_roster_unlocked";
   const tabs = document.querySelector(".tabs");
+  const tabScroll = document.querySelector(".tab-scroll");
   const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
   const panels = Array.from(document.querySelectorAll(".panel"));
   const dialog = document.querySelector("[data-password-dialog]");
@@ -71,6 +72,16 @@
       : 0;
 
     window.scrollTo({ top: target, behavior: "auto" });
+
+    const activeButton = tabButtons.find((button) => button.dataset.tab === id);
+    const scroller = mobile ? tabScroll : tabs;
+    if (activeButton && scroller && typeof scroller.scrollTo === "function") {
+      const buttonRect = activeButton.getBoundingClientRect();
+      const scrollerRect = scroller.getBoundingClientRect();
+      const targetLeft = scroller.scrollLeft + buttonRect.left - scrollerRect.left - (scroller.clientWidth - buttonRect.width) / 2;
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      scroller.scrollTo({ left: Math.max(0, targetLeft), behavior: reduceMotion ? "auto" : "smooth" });
+    }
   }
 
   tabButtons.forEach((button) => {
